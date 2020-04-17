@@ -1,7 +1,12 @@
 <component name="ProjectDictionaryState">
   <dictionary name="sadashi">
     <words>
+      <w>deps</w>
+      <w>mockk</w>
+      <w>moshi</w>
       <w>sadashi</w>
+      <w>spek</w>
+      <w>spekframework</w>
     </words>
   </dictionary>
 </component>
