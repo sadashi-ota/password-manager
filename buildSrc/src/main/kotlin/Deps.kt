@@ -15,7 +15,7 @@ object Deps {
     }
 
     object GradlePlugin {
-        const val build = "com.android.tools.build:gradle:3.6.2"
+        const val build = "com.android.tools.build:gradle:4.0.1"
         const val kotlin = "org.jetbrains.kotlin:kotlin-gradle-plugin:${Versions.kotlin}"
         const val navigation = "androidx.navigation:navigation-safe-args-gradle-plugin:2.2.0"
         const val versions = "com.github.ben-manes:gradle-versions-plugin:0.28.0"
