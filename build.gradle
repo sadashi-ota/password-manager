@@ -1,0 +1,26 @@
+import jp.sadashi.manager.password.Deps
+
+buildscript {
+    repositories {
+        google()
+        jcenter()
+    }
+    dependencies {
+        classpath Deps.GradlePlugin.build
+        classpath Deps.GradlePlugin.kotlin
+        classpath Deps.GradlePlugin.navigation
+        classpath Deps.GradlePlugin.versions
+        classpath Deps.GradlePlugin.androidJunit5
+    }
+}
+
+allprojects {
+    repositories {
+        google()
+        jcenter()
+    }
+}
+
+task clean(type: Delete) {
+    delete rootProject.buildDir
+}

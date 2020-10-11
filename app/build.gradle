@@ -1,0 +1,78 @@
+import jp.sadashi.manager.password.Deps
+
+apply plugin: "com.android.application"
+apply plugin: "kotlin-android"
+apply plugin: "kotlin-android-extensions"
+apply plugin: "com.github.ben-manes.versions"
+apply plugin: "androidx.navigation.safeargs"
+apply plugin: "de.mannodermaus.android-junit5"
+
+android {
+    compileSdkVersion Deps.Versions.compileSdk
+    buildToolsVersion Deps.Versions.buildTools
+
+    defaultConfig {
+        applicationId "jp.sadashi.manager.password"
+        minSdkVersion Deps.Versions.minSdk
+        targetSdkVersion Deps.Versions.compileSdk
+        versionCode 1
+        versionName "0.0.1"
+    }
+
+    buildTypes {
+        debug {
+            minifyEnabled false
+        }
+        release {
+            minifyEnabled true
+            proguardFiles getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro"
+        }
+    }
+
+    sourceSets {
+        main.java.srcDirs += 'src/main/kotlin'
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = "1.8"
+    }
+
+    testOptions {
+        junitPlatform {
+            filters {
+                includeEngines("spek2")
+            }
+            jacocoOptions {
+                html.enabled = true
+                xml.enabled = true
+                csv.enabled = false
+//                excludedClasses.addAll(
+//                        listOf(
+//                                "**/utility/*.class",
+//                                "**/utility/*.class"
+//                        )
+//                )
+            }
+        }
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: "libs", include: ["*.jar"])
+    implementation Deps.Library.kotlin
+    implementation Deps.Library.appcompat
+    implementation Deps.Library.core
+    implementation Deps.Library.material
+    implementation Deps.Library.constraintLayout
+    implementation Deps.Library.navigationFragment
+    implementation Deps.Library.navigationUi
+
+    testImplementation Deps.Test.kotlin
+    testImplementation Deps.Test.mockK
+    testImplementation Deps.Test.Spek.dsl
+    testImplementation Deps.Test.Spek.runn1er
+}
