@@ -10,6 +10,7 @@ buildscript {
         classpath Deps.GradlePlugin.kotlin
         classpath Deps.GradlePlugin.navigation
         classpath Deps.GradlePlugin.versions
+        classpath Deps.GradlePlugin.androidJunit5
     }
 }
 

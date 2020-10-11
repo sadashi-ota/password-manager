@@ -5,6 +5,7 @@ apply plugin: "kotlin-android"
 apply plugin: "kotlin-android-extensions"
 apply plugin: "com.github.ben-manes.versions"
 apply plugin: "androidx.navigation.safeargs"
+apply plugin: "de.mannodermaus.android-junit5"
 
 android {
     compileSdkVersion Deps.Versions.compileSdk
@@ -40,6 +41,24 @@ android {
         jvmTarget = "1.8"
     }
 
+    testOptions {
+        junitPlatform {
+            filters {
+                includeEngines("spek2")
+            }
+            jacocoOptions {
+                html.enabled = true
+                xml.enabled = true
+                csv.enabled = false
+//                excludedClasses.addAll(
+//                        listOf(
+//                                "**/utility/*.class",
+//                                "**/utility/*.class"
+//                        )
+//                )
+            }
+        }
+    }
 }
 
 dependencies {
@@ -51,4 +70,9 @@ dependencies {
     implementation Deps.Library.constraintLayout
     implementation Deps.Library.navigationFragment
     implementation Deps.Library.navigationUi
+
+    testImplementation Deps.Test.kotlin
+    testImplementation Deps.Test.mockK
+    testImplementation Deps.Test.Spek.dsl
+    testImplementation Deps.Test.Spek.runn1er
 }

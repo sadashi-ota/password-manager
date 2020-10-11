@@ -19,6 +19,7 @@ object Deps {
         const val kotlin = "org.jetbrains.kotlin:kotlin-gradle-plugin:${Versions.kotlin}"
         const val navigation = "androidx.navigation:navigation-safe-args-gradle-plugin:2.2.0"
         const val versions = "com.github.ben-manes:gradle-versions-plugin:0.28.0"
+        const val androidJunit5 = "de.mannodermaus.gradle.plugins:android-junit5:1.6.2.0"
     }
 
     object Library {
@@ -31,10 +32,12 @@ object Deps {
         const val navigationUi = "androidx.navigation:navigation-ui-ktx:2.2.2"
     }
 
-    object Spek2 {
-        const val dsl = "org.spekframework.spek2:spek-dsl-jvm:${Versions.spek}"
-        const val runner = "org.spekframework.spek2:spek-runner-junit5:${Versions.spek}"
+    object Test {
+        const val kotlin = "org.jetbrains.kotlin:kotlin-test:${Versions.kotlin}"
+        const val mockK = "io.mockk:mockk:1.9.3"
+        object Spek {
+            const val dsl = "org.spekframework.spek2:spek-dsl-jvm:${Versions.spek}"
+            const val runn1er = "org.spekframework.spek2:spek-runner-junit5:${Versions.spek}"
+        }
     }
-
-    private const val mockK = "io.mockk:mockk:1.9.3"
 }
