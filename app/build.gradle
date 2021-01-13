@@ -2,7 +2,7 @@ import jp.sadashi.manager.password.Deps
 
 apply plugin: "com.android.application"
 apply plugin: "kotlin-android"
-apply plugin: "kotlin-android-extensions"
+apply plugin: "kotlin-parcelize"
 apply plugin: "com.github.ben-manes.versions"
 apply plugin: "androidx.navigation.safeargs"
 apply plugin: "de.mannodermaus.android-junit5"
@@ -17,6 +17,10 @@ android {
         targetSdkVersion Deps.Versions.compileSdk
         versionCode 1
         versionName "0.0.1"
+    }
+
+    buildFeatures {
+        viewBinding true
     }
 
     buildTypes {

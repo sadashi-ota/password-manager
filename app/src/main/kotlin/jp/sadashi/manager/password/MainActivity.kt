@@ -4,27 +4,32 @@ import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
-import androidx.navigation.findNavController
-import kotlinx.android.synthetic.main.activity_main.*
+import androidx.navigation.NavController
+import jp.sadashi.manager.password.databinding.ActivityMainBinding
+import jp.sadashi.manager.password.extensions.findNavControllerById
 
 class MainActivity : AppCompatActivity() {
 
-    private val navController by lazy { findNavController(R.id.nav_host_fragment) } //1
+    private val navController: NavController by lazy { findNavControllerById(R.id.nav_host_fragment) }
+
+    private lateinit var binding: ActivityMainBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
-        setSupportActionBar(toolbar)
+        binding = ActivityMainBinding.inflate(layoutInflater)
 
-        navController.addOnDestinationChangedListener { _, destination, _ ->  //3
+        setContentView(binding.root)
+        setSupportActionBar(binding.toolbar)
+
+        navController.addOnDestinationChangedListener { _, destination, _ ->
             if (destination.id != R.id.PasswordListFragment) {
-                fab.hide()
+                binding.fab.hide()
             } else {
-                fab.show()
+                binding.fab.show()
             }
         }
 
-        fab.setOnClickListener {
+        binding.fab.setOnClickListener {
             val action =
                 PasswordListFragmentDirections.actionPasswordListFragmentToPasswordDetailFragment()
             navController.navigate(action)
