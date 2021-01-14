@@ -6,6 +6,9 @@ on:
   pull_request:
     branches: [ master ]
 
+env:
+  SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK_URL }}
+  
 jobs:
   build:
 
@@ -25,3 +28,17 @@ jobs:
       with:
         name: outputs
         path: app/build/outputs/
+    - name: Slack Notification on Success
+      if: success()
+      uses: rtCamp/action-slack-notify@v2.0.2
+      env:
+        SLACK_CHANNEL: github_actions
+        SLACK_TITLE: Build Success
+        SLACK_COLOR: good
+    - name: Slack Notification on Failure
+      uses: rtCamp/action-slack-notify@v2.0.2
+      if: failure()
+      env:
+        SLACK_CHANNEL: github_actions
+        SLACK_TITLE: Build Failure
+        SLACK_COLOR: danger
