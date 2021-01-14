@@ -1,0 +1,48 @@
+name: Android CI
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+env:
+  SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK_URL }}
+  SLACK_USERNAME: GitHub Actions
+  SLACK_ICON: https://avatars1.githubusercontent.com/u/583231?s=400&u=a59fef2a493e2b67dd13754231daf220c82ba84d&v=4
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: set up JDK 1.8
+      uses: actions/setup-java@v1
+      with:
+        java-version: 1.8
+    - name: Grant execute permission for gradlew
+      run: chmod +x gradlew
+    - name: Build with Gradle For Debug
+      run: ./gradlew assembleDebug
+    - uses: actions/upload-artifact@master
+      with:
+        name: outputs
+        path: app/build/outputs/
+    - name: Slack Notification on Success
+      if: success()
+      uses: rtCamp/action-slack-notify@v2.0.2
+      env:
+        SLACK_CHANNEL: github_actions
+        SLACK_TITLE: Build Success
+        SLACK_MESSAGE: Succeed to debug build.
+        SLACK_COLOR: good
+    - name: Slack Notification on Failure
+      uses: rtCamp/action-slack-notify@v2.0.2
+      if: failure()
+      env:
+        SLACK_CHANNEL: github_actions
+        SLACK_TITLE: Build Failure
+        SLACK_MESSAGE: Falied to debug build.
+        SLACK_COLOR: danger
