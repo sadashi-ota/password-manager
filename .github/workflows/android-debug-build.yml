@@ -8,7 +8,9 @@ on:
 
 env:
   SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK_URL }}
-  
+  SLACK_USERNAME: GitHub Actions
+  SLACK_ICON: https://avatars1.githubusercontent.com/u/583231?s=400&u=a59fef2a493e2b67dd13754231daf220c82ba84d&v=4
+
 jobs:
   build:
 
@@ -34,6 +36,7 @@ jobs:
       env:
         SLACK_CHANNEL: github_actions
         SLACK_TITLE: Build Success
+        SLACK_MESSAGE: Succeed to debug build.
         SLACK_COLOR: good
     - name: Slack Notification on Failure
       uses: rtCamp/action-slack-notify@v2.0.2
@@ -41,4 +44,5 @@ jobs:
       env:
         SLACK_CHANNEL: github_actions
         SLACK_TITLE: Build Failure
+        SLACK_MESSAGE: Falied to debug build.
         SLACK_COLOR: danger
