@@ -4,7 +4,7 @@ package jp.sadashi.manager.password
 
 object Deps {
     object Versions {
-        const val compileSdk = 30
+        const val compileSdk = 31
         const val minSdk = 26
         const val kotlin = "1.5.31"
         const val spek = "2.0.17"
