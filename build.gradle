@@ -3,7 +3,8 @@ import jp.sadashi.manager.password.Deps
 buildscript {
     repositories {
         google()
-        jcenter()
+        mavenCentral()
+        gradlePluginPortal()
     }
     dependencies {
         classpath Deps.GradlePlugin.build
@@ -17,7 +18,7 @@ buildscript {
 allprojects {
     repositories {
         google()
-        jcenter()
+        mavenCentral()
     }
 }
 
