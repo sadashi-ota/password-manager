@@ -1,15 +1,16 @@
 import jp.sadashi.manager.password.Deps
 
-apply plugin: "com.android.application"
-apply plugin: "kotlin-android"
-apply plugin: "kotlin-parcelize"
-apply plugin: "com.github.ben-manes.versions"
-apply plugin: "androidx.navigation.safeargs"
-apply plugin: "de.mannodermaus.android-junit5"
+plugins {
+    id "com.android.application"
+    id "kotlin-android"
+    id "kotlin-parcelize"
+    id "com.github.ben-manes.versions"
+    id "androidx.navigation.safeargs"
+    id "de.mannodermaus.android-junit5"
+}
 
 android {
     compileSdkVersion Deps.Versions.compileSdk
-    buildToolsVersion Deps.Versions.buildTools
 
     defaultConfig {
         applicationId "jp.sadashi.manager.password"
@@ -38,11 +39,11 @@ android {
     }
 
     compileOptions {
-        sourceCompatibility JavaVersion.VERSION_1_8
-        targetCompatibility JavaVersion.VERSION_1_8
+        sourceCompatibility JavaVersion.VERSION_11
+        targetCompatibility JavaVersion.VERSION_11
     }
     kotlinOptions {
-        jvmTarget = "1.8"
+        jvmTarget = "11.0"
     }
 
     testOptions {
@@ -79,4 +80,16 @@ dependencies {
     testImplementation Deps.Test.mockK
     testImplementation Deps.Test.Spek.dsl
     testImplementation Deps.Test.Spek.runn1er
+}
+
+def isNonStable = { String version ->
+    def stableKeyword = ['RELEASE', 'FINAL', 'GA'].any { it -> version.toUpperCase().contains(it) }
+    def regex = /^[0-9,.v-]+(-r)?$/
+    return !stableKeyword && !(version ==~ regex)
+}
+
+tasks.named("dependencyUpdates").configure {
+    rejectVersionIf {
+        isNonStable(it.candidate.version)
+    }
 }
