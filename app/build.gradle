@@ -18,10 +18,14 @@ android {
         targetSdkVersion Deps.Versions.compileSdk
         versionCode 1
         versionName "0.0.1"
+        vectorDrawables {
+            useSupportLibrary true
+        }
     }
 
     buildFeatures {
         viewBinding true
+        compose true
     }
 
     buildTypes {
@@ -64,22 +68,39 @@ android {
             }
         }
     }
+    composeOptions {
+        kotlinCompilerExtensionVersion "1.0.5"
+    }
+    packagingOptions {
+        resources {
+            excludes += '/META-INF/{AL2.0,LGPL2.1}'
+        }
+    }
 }
 
 dependencies {
     implementation fileTree(dir: "libs", include: ["*.jar"])
+
     implementation Deps.Library.kotlin
     implementation Deps.Library.appcompat
     implementation Deps.Library.core
     implementation Deps.Library.material
-    implementation Deps.Library.constraintLayout
-    implementation Deps.Library.navigationFragment
-    implementation Deps.Library.navigationUi
+
+    implementation Deps.Library.Compose.ui
+    implementation Deps.Library.Compose.foundation
+    implementation Deps.Library.Compose.activity
+    implementation Deps.Library.Compose.viewModel
+    implementation Deps.Library.Compose.navigation
+    implementation Deps.Library.Compose.Material.core
+    implementation Deps.Library.Compose.Material.icons
+    implementation Deps.Library.Compose.Material.iconsExt
 
     testImplementation Deps.Test.kotlin
     testImplementation Deps.Test.mockK
     testImplementation Deps.Test.Spek.dsl
-    testImplementation Deps.Test.Spek.runn1er
+    testImplementation Deps.Test.Spek.runner
+
+    debugImplementation Deps.Library.Compose.uiTool
 }
 
 def isNonStable = { String version ->
