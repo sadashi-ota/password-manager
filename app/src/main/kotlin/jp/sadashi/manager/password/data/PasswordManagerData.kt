@@ -3,16 +3,17 @@ package jp.sadashi.manager.password.data
 import androidx.compose.runtime.Immutable
 
 @Immutable
-data class Password(
+data class PasswordRecord(
     val id: Int,
     val name: String,
     val password: String,
+    val note: String,
 )
 
 object TestData {
-    val password: List<Password> = listOf(
-        Password(1, "Android", "1111"),
-        Password(2, "Jetpack Compose", "2222"),
-        Password(3, "Password Manager", "3333"),
+    val PASSWORD_RECORDS: List<PasswordRecord> = listOf(
+        PasswordRecord(1, "Android", "1111", "ノートサンプル1"),
+        PasswordRecord(2, "Jetpack Compose", "2222", "ノートサンプル2"),
+        PasswordRecord(3, "Password Manager", "3333", "ノートサンプル3"),
     )
 }
