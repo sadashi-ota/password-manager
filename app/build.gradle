@@ -5,7 +5,6 @@ plugins {
     id "kotlin-android"
     id "kotlin-parcelize"
     id "com.github.ben-manes.versions"
-    id "androidx.navigation.safeargs"
     id "de.mannodermaus.android-junit5"
 }
 
@@ -46,6 +45,7 @@ android {
         sourceCompatibility JavaVersion.VERSION_11
         targetCompatibility JavaVersion.VERSION_11
     }
+
     kotlinOptions {
         jvmTarget = "11"
     }
@@ -94,6 +94,7 @@ dependencies {
     implementation Deps.Library.Compose.Material.core
     implementation Deps.Library.Compose.Material.icons
     implementation Deps.Library.Compose.Material.iconsExt
+    implementation Deps.Library.Compose.Accompanist.animation
 
     testImplementation Deps.Test.kotlin
     testImplementation Deps.Test.mockK
