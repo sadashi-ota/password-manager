@@ -17,13 +17,9 @@ android {
         targetSdkVersion Deps.Versions.compileSdk
         versionCode 1
         versionName "0.0.1"
-        vectorDrawables {
-            useSupportLibrary true
-        }
     }
 
     buildFeatures {
-        viewBinding true
         compose true
     }
 
