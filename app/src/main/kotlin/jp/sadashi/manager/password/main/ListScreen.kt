@@ -22,8 +22,6 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.rememberNavController
 import jp.sadashi.manager.password.PasswordManagerAppBar
 import jp.sadashi.manager.password.PasswordManagerScreen
-import jp.sadashi.manager.password.data.PasswordRecord
-import jp.sadashi.manager.password.data.TestData
 import jp.sadashi.manager.password.theme.PasswordManagerTheme
 
 @ExperimentalMaterialApi
