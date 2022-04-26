@@ -25,9 +25,9 @@ import androidx.navigation.NavType
 import androidx.navigation.navArgument
 import com.google.accompanist.navigation.animation.AnimatedNavHost
 import com.google.accompanist.navigation.animation.composable
-import jp.sadashi.manager.password.main.TestData
-import jp.sadashi.manager.password.main.DetailScreen
-import jp.sadashi.manager.password.main.ListScreen
+import jp.sadashi.manager.password.data.TestData
+import jp.sadashi.manager.password.detail.DetailScreen
+import jp.sadashi.manager.password.list.ListScreen
 
 enum class PasswordManagerScreen {
     List,
