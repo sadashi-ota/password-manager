@@ -1,4 +1,4 @@
-package jp.sadashi.manager.password.ui
+package jp.sadashi.manager.password.main
 
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.fillMaxSize
@@ -12,7 +12,6 @@ import androidx.compose.material.Icon
 import androidx.compose.material.ListItem
 import androidx.compose.material.Scaffold
 import androidx.compose.material.Text
-import androidx.compose.material.TopAppBar
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Add
 import androidx.compose.runtime.Composable
@@ -23,9 +22,7 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.rememberNavController
 import jp.sadashi.manager.password.PasswordManagerAppBar
 import jp.sadashi.manager.password.PasswordManagerScreen
-import jp.sadashi.manager.password.data.PasswordRecord
-import jp.sadashi.manager.password.data.TestData
-import jp.sadashi.manager.password.ui.theme.PasswordManagerTheme
+import jp.sadashi.manager.password.theme.PasswordManagerTheme
 
 @ExperimentalMaterialApi
 @Composable

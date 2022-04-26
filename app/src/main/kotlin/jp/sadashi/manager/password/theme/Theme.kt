@@ -1,4 +1,4 @@
-package jp.sadashi.manager.password.ui.theme
+package jp.sadashi.manager.password.theme
 
 import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.material.MaterialTheme
