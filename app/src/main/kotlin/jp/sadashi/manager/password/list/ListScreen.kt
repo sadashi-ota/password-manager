@@ -1,4 +1,4 @@
-package jp.sadashi.manager.password.main
+package jp.sadashi.manager.password.list
 
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.fillMaxSize
@@ -22,6 +22,8 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.rememberNavController
 import jp.sadashi.manager.password.PasswordManagerAppBar
 import jp.sadashi.manager.password.PasswordManagerScreen
+import jp.sadashi.manager.password.main.PasswordRecord
+import jp.sadashi.manager.password.main.TestData
 import jp.sadashi.manager.password.theme.PasswordManagerTheme
 
 @ExperimentalMaterialApi
