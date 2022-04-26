@@ -1,4 +1,4 @@
-package jp.sadashi.manager.password.main
+package jp.sadashi.manager.password.data
 
 import androidx.compose.runtime.Immutable
 
