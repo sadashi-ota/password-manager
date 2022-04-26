@@ -1,4 +1,4 @@
-package jp.sadashi.manager.password.ui
+package jp.sadashi.manager.password.main
 
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
@@ -28,7 +28,7 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.rememberNavController
 import jp.sadashi.manager.password.PasswordManagerAppBar
 import jp.sadashi.manager.password.data.PasswordRecord
-import jp.sadashi.manager.password.ui.theme.PasswordManagerTheme
+import jp.sadashi.manager.password.theme.PasswordManagerTheme
 
 @Composable
 fun DetailScreen(

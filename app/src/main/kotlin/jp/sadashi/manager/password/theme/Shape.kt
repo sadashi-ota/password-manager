@@ -1,4 +1,4 @@
-package jp.sadashi.manager.password.ui.theme
+package jp.sadashi.manager.password.theme
 
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.Shapes
